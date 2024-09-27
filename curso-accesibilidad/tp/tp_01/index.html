@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <!--Bootstrap CDN - CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Bootstrap CDN - JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+    <!-- Content -->
+    
+    <!--Menu-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Curso Accesibilidad</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span>Menu</span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#galeriaImagenes">Ver galeria de Imagenes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#texto">Texto</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#formulario">Formulario</a>
+              </li>
+              <li>
+                <a class="nav-link" href="#videoplayer">Reproductor de Video</a>
+              </li>
+              <li>
+                <a class="nav-link" href="#audioplayer">Reproductor de Audio</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+         
+      <div class="imagen" id="galeriaImagenes">
+        <!--Añadir imagenes-->
+        <br>
+       <div class="card" style="width: 18rem">
+         <img src="assets/img/img1-cat.jpg" title="Gato" alt="Gato bebé caminando" class="card-img-top">
+         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque praesentium sequi atque voluptates omnis quae cupiditate totam veniam at mollitia nihil fuga ipsam ipsa repellendus, reiciendis vitae pariatur laborum under </p>
+       </div>
+      </div>
+      <br>
+     
+      <div class="texto" id="texto">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea deserunt ut repellat fugit quibusdam sapiente, odio magnam commodi sunt qui debitis reiciendis, non deleniti rem consequatur aut. Blanditiis, alias tempore!</p>
+      </div>
+      <hr>
+      <div class="form" id="formulario">
+        <style>
+          .valid {
+            color: #28a745;
+          }
+          .invalid{
+            color: #dc3545;
+          }
+
+          #tamanio {
+            background-color: #343a40;
+            color: #ffffff;
+          }
+
+          form h1{
+            color: #343a40;
+          }
+
+          #emailHelp, #usernameHelp, #passwordHelp{
+            color: #6c757d;
+          }
+      </style>
+      <div class="container mt-5">
+               <form action="">
+              <h1>Registro</h1>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"required>
+                <div id="emailHelp" class="form-text">Por favor, ingrese su mail</div>
+              </div>
+              <!--Username-->
+              <div class="mb-3">
+                <label for="username" id="username" class="form-label" aria-describedby="usernameHelp" >Nombre de Usuario</label>
+                <input type="text" class="form-control" id="username" required>
+                <div id="usernameHelp" class="form-text">Por favor, ingrese un  nombre de usuario</div>
+              </div>
+              <!--Password-->
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" required>
+                <div id="passwordHelp" class="form-text">Crea una contraseña que cumpla con estos requisitos:</div>
+                <hr>
+                <ul>
+                  <li id="tamanio" class="invalid" style="background-color: black;">Debe tener al menos 8 caracteres</li>
+                  <li id="mayus" class="invalid">Debe tener al menos una mayuscula</li>
+                  <li id="min" class="invalid">Debe tener al menos una minuscula</li>
+                  <li id="num" class="invalid">Debe tener al menos un numero</li>
+                  <li id="spec" class="invalid">Debe tener al menos un caracter especial <b>@, #, !, $, $$, etc</b></li>
+                </ul>
+              </div>
+              <button class="btn btn-danger" onclick= "alert('Registro exitoso');">Registrarse</button>
+          </form>
+        </div>
+      </div>
+      <div id="videoplayer">
+        <hr>
+        <header class="bg-dark text-white p-3">
+          <h1 class="text-center">Video</h1>
+        </header>
+        <main class="container my-5">
+          <section>
+            <h2>Fragmento </h2>
+            <!--Content-->
+          </section>
+        </main>
+      </div>
+      <div id="audioplayer">
+      <header class="bg-dark text-white p3">
+        <h1 class="text-center">Audio</h1>
+       
+      </header>
+       <!--Content-->
+       <h3>Audio extraído de una poesía </h3>
+       <audio src="assets/audio/wav/p.wav" controls></audio>
+       <!--Transcripcion-->
+       <hr>
+       <h4>Transcripcion de "Viejo Conocido"</h4>
+       <p>0:0:01 - Fingir estar siempre bien</p>
+       <p>0:0:02 - aunque no sea verdad</p>
+       <p>0:0:03 - para no quedarme sola de nuevo</p>
+       <p>0:0:06 - Ser para lo que para otros está bien</p>
+       <p>0:0:08 - callar mi voz, y</p>
+       <p>0:0:10 - dar la espalda a lo que siento</p>
+       <p>0:0:13 - callar lo que mi voz tiene  para decir</p>
+       <p>0:0:14 - todo lo que tengo para decir, ya lo sabes y todo fue una historia mal contada </p>
+       <p>0:0:22 - La soledad, el frío y el momento</p>
+       <p>0:0:26 - la gloria de la frialdad y soledad </p>
+       <p>0:0:27 - el poder que tienen sobre mi</p>
+       <p>0:0:30 - y todo fue solo una ilusión</p>
+      </div>
+      <script src="assets/javascript/passwordChecker.js"></script>
+    <!-- /Content -->
+</body>
+</html>
