@@ -1,18 +1,18 @@
 <?php
 //Hostinger
-/*
+
 $servername = "localhost";
 $username = "u810780627_ubuntudb";
 $password = "Ubuntu2020sql";
 $dbname = "u810780627_ubuntudb";
-*/
-//Localhost
 
+//Localhost
+/*
 $servername ="localhost";
 $username = "root";
 $password = "";
 $dbname = "ubuntudb";
-
+*/
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -108,7 +108,7 @@ $conn->close();
           <a class="nav-link" href="../../../../educational/workshops">Talleres</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../../../educactional/accomaniment">Acompañamientos</a>
+          <a class="nav-link" href="../../../../educational/accomaniment">Acompañamientos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../../../educational/consultancy">Consultoria</a>
@@ -253,7 +253,7 @@ $conn->close();
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Contacto</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Correo: direccioncentro@centrodeformacionubuntu.com</a></li>
+                        <li><a href="#" class="text-white">Correo: centrodecapacitacion.ubuntu@gmail.com </a></li>
                         <li><a href="#" class="text-white">Teléfono: 1165300745 - 4554310</a></li>
                         <li><a href="#" class="text-white">Dirección: Santiago Parodi 4330 - Caseros, 3 de Febrero. Pcia. Buenos Aires</a></li>
                     </ul>
@@ -261,7 +261,10 @@ $conn->close();
             </div>
         </div>
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy; 2024 Nombre de la Empresa. Todos los derechos reservados.
+        <img src="../../../../resources/images/LOGO COMISION EN BLANCO.png" alt="Logo comision" height="150" width="150">
+          <img src="../../../../resources/images/Grupo educativo LOGO BLANCO.png" alt="Logo grupo eduactivo" height="150" width="150">
+          <img src="../../../../resources/images/logo-nuevo.png" alt="logo centro" height="150" width="150">
+         <h6> &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados. </h6>
         </div>
     </footer>
 </body>

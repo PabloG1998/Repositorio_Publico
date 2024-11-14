@@ -73,7 +73,7 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Contacto</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Correo: direccioncentro@centrodeformacionubuntu.com</a></li>
+                        <li><a href="#" class="text-white">Correo: centrodecapacitacion.ubuntu@gmail.com </a></li>
                         <li><a href="#" class="text-white">Teléfono: 1165300745 - 45545310</a></li>
                         <li><a href="#" class="text-white">Dirección: Santiago Parodi 4330 - Caseros, 3 de Febrero, Pcia. Buenos Aires</a></li>
                     </ul>

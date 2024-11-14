@@ -106,9 +106,9 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Contacto</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Correo: info@empresa.com</a></li>
-                        <li><a href="#" class="text-white">Teléfono: +123 456 7890</a></li>
-                        <li><a href="#" class="text-white">Dirección: Calle Falsa 123</a></li>
+                        <li><a href="#" class="text-white">Correo: centrodecapacitacion.ubuntu@gmail.com </a></li>
+                        <li><a href="#" class="text-white">Teléfono: +54 9 1165300745 (Celular) - 45545310 (línea fija)</a></li>
+                        <li><a href="#" class="text-white">Dirección: Escultor Santiago Parodi 4330- Caseros. TRES DE FEBRERO. PCIA.BUENOS AIRES</a></li>
                     </ul>
                 </div>
             </div>

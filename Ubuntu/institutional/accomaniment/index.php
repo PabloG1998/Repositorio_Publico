@@ -1,10 +1,22 @@
 <?php
 
 // Conexión a la base de datos
+
+//Hostinger
+
 $servername = 'localhost';
 $dbname = 'u810780627_ubuntudb';
 $username = 'u810780627_ubuntudb';
 $password = 'Ubuntu2020sql';
+
+
+//Localhost
+/*
+$servername = "localhost";
+$dbname = "ubuntudb";
+$username = "root";
+$password = "";
+*/
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -14,7 +26,7 @@ if ($conn->connect_error) {
 }
 
 // Consultar acompañamientos
-$sql = "SELECT id, nombre, detalles FROM acompanamientos";
+$sql = "SELECT id, nombre FROM acompanamientos";
 $result = $conn->query($sql);
 
 ?>
@@ -96,16 +108,16 @@ $result = $conn->query($sql);
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Contacto</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Correo: direccioncentro@centrodeformacionubuntu.com</a></li>
+                        <li><a href="#" class="text-white">Correo: centrodecapacitacion.ubuntu@gmail.com </a></li>
                         <li><a href="#" class="text-white">Teléfono: 1165300745 - 45545310</a></li>
                         <li><a href="#" class="text-white">Dirección: Santiago Parodi 4330 - Caseros, 3 de Febrero. Pcia.Buenos Aires</a></li>
                     </ul>
                 </div>
             </div>
         </div>
-        <img src="resources/images/LOGO COMISION EN BLANCO.png" alt="Logo comision" height="150" width="150">
-          <img src="resources/images/Grupo educativo LOGO BLANCO.png" alt="Logo grupo eduactivo" height="150" width="150">
-          <img src="resources/images/EagSKyL6nmIT5erqWDgzbASr0mrytrYTcFlevFtMJegeA8qwxTpQPhGOr3gchU.png" alt="logo centro" height="150" width="150">
+        <img src="../../resources/images/LOGO COMISION EN BLANCO.png" alt="Logo comision" height="150" width="150">
+          <img src="../../resources/images/Grupo educativo LOGO BLANCO.png" alt="Logo grupo eduactivo" height="150" width="150">
+          <img src="../../resources/images/logo-nuevo.png" alt="logo centro" height="150" width="150">
          <h6> &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados. </h6>
         </div>
     </footer>
