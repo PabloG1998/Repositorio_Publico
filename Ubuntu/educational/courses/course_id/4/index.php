@@ -1,8 +1,16 @@
 <?php 
-$servername = 'localhost';
-$dbname = 'u810780627_ubuntudb';
-$username = 'u810780627_ubuntudb';
-$password = 'Ubuntu2020sql';
+/*
+//Hostinger
+$servername = "localhost";
+$username = "u810780627_ubuntudb";
+$password = "Ubuntu2020sql";
+$dbname = "u810780627_ubuntudb";
+*/
+//localhost
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ubuntudb";
 
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -226,9 +234,9 @@ $conn->close();
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Contacto</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Correo: info@empresa.com</a></li>
-                        <li><a href="#" class="text-white">Teléfono: +123 456 7890</a></li>
-                        <li><a href="#" class="text-white">Dirección: Calle Falsa 123</a></li>
+                        <li><a href="#" class="text-white">Correo: direccioncentro@centrodeformacionubuntu.com</a></li>
+                        <li><a href="#" class="text-white">Teléfono: 1165300742 - 45545310</a></li>
+                        <li><a href="#" class="text-white">Dirección: Escultor Santiago Parodi 4330 - Caseros, Tres de Febrero. Pcia. Buenos Aires</a></li>
                     </ul>
                 </div>
             </div>

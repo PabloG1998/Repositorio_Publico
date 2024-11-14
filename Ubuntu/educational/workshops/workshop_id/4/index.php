@@ -1,8 +1,17 @@
-<?php 
+<?php
+//Hostinger
+/*
 $servername = "localhost";
 $username = "u810780627_ubuntudb";
 $password = "Ubuntu2020sql";
 $dbname = "u810780627_ubuntudb";
+*/
+//Localhost
+
+$servername ="localhost";
+$username = "root";
+$password = "";
+$dbname = "ubuntudb";
 
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -93,7 +102,7 @@ $conn->close();
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="educational/courses">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="../../../../educational/courses">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../../../educational/workshops">Talleres</a>
@@ -102,7 +111,7 @@ $conn->close();
           <a class="nav-link" href="../../../../educactional/accomaniment">Acompañamientos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../../../educactional/consultancy">Consultoria</a>
+          <a class="nav-link" href="../../../../educational/consultancy">Consultoria</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../../../platform/register.php">Crear Cuenta</a>
@@ -238,15 +247,15 @@ $conn->close();
                     <ul class="list-unstyled mb-0">
                         <li><a href="./helpful-links/scopes/" class="text-white">Alcances</a></li>
                         <li><a href="./helpful-links/pricing/" class="text-white">Precios</a></li>
-                        <li><a href="./jobs" class="text-white">Trabaja con nosotros</a></li>
+                        <li><a href="../../../../platform/jobs/" class="text-white">Trabaja con nosotros</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                     <h5 class="text-uppercase">Contacto</h5>
                     <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Correo: info@empresa.com</a></li>
-                        <li><a href="#" class="text-white">Teléfono: +123 456 7890</a></li>
-                        <li><a href="#" class="text-white">Dirección: Calle Falsa 123</a></li>
+                        <li><a href="#" class="text-white">Correo: direccioncentro@centrodeformacionubuntu.com</a></li>
+                        <li><a href="#" class="text-white">Teléfono: 1165300745 - 4554310</a></li>
+                        <li><a href="#" class="text-white">Dirección: Santiago Parodi 4330 - Caseros, 3 de Febrero. Pcia. Buenos Aires</a></li>
                     </ul>
                 </div>
             </div>

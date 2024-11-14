@@ -1,9 +1,18 @@
 <?php
 
+//Hostinger
 $servername = 'localhost';
 $dbname = 'u810780627_ubuntudb';
 $username = 'u810780627_ubuntudb';
 $password = 'Ubuntu2020sql';
+
+//Localhost
+/*
+$servername = 'localhost';
+$dbname = "ubuntudb";
+$username = "root";
+$password = "";
+*/
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -56,7 +65,7 @@ $total_pages = ceil($total_items / $items_per_page);
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="../courses/">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../educational/workshops">Talleres</a>
@@ -65,7 +74,7 @@ $total_pages = ceil($total_items / $items_per_page);
        <!--   <a class="nav-link" href="../../institutional/accompaniment">Acompañamientos</a> -->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../intitutional/consultancy">Consultoria</a>
+          <a class="nav-link" href="../../institutional/consultancy/">Consultoria</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../platform/register.php">Crear Cuenta</a>
@@ -154,7 +163,7 @@ $total_pages = ceil($total_items / $items_per_page);
                     <ul class="list-unstyled mb-0">
                         <li><a href="./helpful-links/scopes/" class="text-white">Alcances</a></li>
                         <li><a href="./helpful-links/pricing/" class="text-white">Precios</a></li>
-                        <li><a href="./jobs" class="text-white">Trabaja con nosotros</a></li>
+                        <li><a href="../../platform/jobs/" class="text-white">Trabaja con nosotros</a></li>
                         <li><a href="#" class="text-white"></a></li> 
                      </ul>
                 </div>

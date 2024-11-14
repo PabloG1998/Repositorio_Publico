@@ -1,9 +1,20 @@
 <?php 
+
+//Hostinger
+
 $servername = 'localhost';
 $dbname = 'u810780627_ubuntudb';
 $username = 'u810780627_ubuntudb';
 $password = 'Ubuntu2020sql';
 
+
+//Localhost
+/*
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ubuntudb";
+*/
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -91,7 +102,7 @@ $conn->close();
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="../../../courses/">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../../../educational/workshops">Talleres</a>
@@ -100,7 +111,7 @@ $conn->close();
           <a class="nav-link" href="../../../../institutional/accompaniment">Acompañamientos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../../../intitutional/consultancy">Consultoria</a>
+          <a class="nav-link" href="../../../../institutional/consultancy">Consultoria</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../../../platform/register.php">Crear Cuenta</a>

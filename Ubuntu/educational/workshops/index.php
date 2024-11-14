@@ -1,8 +1,18 @@
-<?php
+<?php 
+
+//Hostinger 
 $servername = 'localhost';
 $dbname = 'u810780627_ubuntudb';
 $username = 'u810780627_ubuntudb';
 $password = 'Ubuntu2020sql';
+
+//Localhost
+/*
+$servername = 'localhost';
+$dbname = "ubuntudb";
+$username = "root";
+$password = "";
+*/
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -142,7 +152,7 @@ $total_pages = ceil($total_talleres / $limit); // Total de páginas
                     <ul class="list-unstyled mb-0">
                         <li><a href="./helpful-links/scopes/" class="text-white">Alcances</a></li>
                         <li><a href="./helpful-links/pricing/" class="text-white">Precios</a></li>
-                        <li><a href="./jobs" class="text-white">Trabaja con nosotros</a></li>
+                        <li><a href="../../platform/jobs/" class="text-white">Trabaja con nosotros</a></li>
                         <li><a href="#" class="text-white"></a></li> 
                      </ul>
                 </div>

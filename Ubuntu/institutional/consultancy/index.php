@@ -95,7 +95,7 @@
                     <ul class="list-unstyled mb-0">
                         <li><a href="./helpful-links/scopes/" class="text-white">Alcances</a></li>
                         <li><a href="./helpful-links/pricing/" class="text-white">Precios</a></li>
-                        <li><a href="./jobs" class="text-white">Trabaja con nosotros</a></li>
+                        <li><a href="../../platform/jobs/" class="text-white">Trabaja con nosotros</a></li>
                         <li><a href="#" class="text-white"></a></li> 
                      </ul>
                 </div>

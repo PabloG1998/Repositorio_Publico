@@ -15,11 +15,11 @@
     <!-- Menu -->
   <nav class="menu">
   <ul>
-    <li><a href="#">Inicio</a></li>
-    <li><a href="educational/courses/">Cursos</a></li>
-    <li><a href="educational/workshops/">Talleres</a></li>
-    <li><a href="institutional/accomaniment/">Acompañamientos</a></li>
-    <li><a href="institutional/consultancy/">Consultoria</a></li>
+    <li><a href="../../../../index.php">Inicio</a></li>
+    <li><a href="../../../../educational/courses/">Cursos</a></li>
+    <li><a href="../../../../educational/workshops/">Talleres</a></li>
+    <li><a href="../../../../institutional/accomaniment/">Acompañamientos</a></li>
+    <li><a href="../../../../institutional/consultancy/">Consultoria</a></li>
     <li><a href="platform/register.php">Crear Cuenta</a></li>
     <li><a href="platform/login.php">Ingresar</a></li>
     <!-- Search -->
