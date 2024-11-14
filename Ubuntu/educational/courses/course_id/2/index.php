@@ -1,9 +1,8 @@
 <?php 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ubuntudb";
-
+$servername = 'localhost';
+$dbname = 'u810780627_ubuntudb';
+$username = 'u810780627_ubuntudb';
+$password = 'Ubuntu2020sql';
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -21,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefono = isset($_POST['phone']) ? $_POST['phone'] : '';
     $curso = isset($_POST['course']) ? $_POST['course'] : '';
 
-    // Preparar la consulta SQL y ejecutar
+    // Preparar la consulta SQL para la inscripción y ejecutar
     $sql = "INSERT INTO formulario_inscripcion (nombre_completo, apellido, email, telefono, curso) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     if ($stmt === false) {
@@ -31,15 +30,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssss", $nombre_completo, $apellido, $email, $telefono, $curso);
 
     if ($stmt->execute()) {
-     //   echo "Inscripción realizada con éxito";
+        // Guardar el ID de la inscripción para usarlo al subir el comprobante
+        $inscripcion_id = $stmt->insert_id; // Obtener el ID de la última inserción
     } else {
         echo "Error: " . $stmt->error;
     }
 
     // Cierra la conexión
     $stmt->close();
-} else {
- //   echo "No se enviaron datos por POST.";
+
+    // Manejo de subida de comprobante
+    if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] == UPLOAD_ERR_OK) {
+        $comprobante = $_FILES['comprobante']['tmp_name'];
+        $comprobante_name = $_FILES['comprobante']['name'];
+        $comprobante_blob = file_get_contents($comprobante); // Leer el archivo
+
+        // Preparar la consulta para subir el comprobante
+        $sql = "INSERT INTO comprobantes (id, nombre_completo, comprobante, fecha_de_creacion) VALUES (?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            die("Error al preparar la consulta: " . $conn->error);
+        }
+
+        $stmt->bind_param("issb", $inscripcion_id, $nombre_completo, $apellido, $comprobante_blob);
+
+        if ($stmt->execute()) {
+            echo "Comprobante subido con éxito";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        $stmt->close();
+    }
 }
 
 $conn->close();
@@ -58,41 +80,69 @@ $conn->close();
 
 <body>
     <!-- Menu -->
-    <nav class="menu">
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="educational/courses/">Cursos</a></li>
-            <li><a href="educational/workshops/">Talleres</a></li>
-            <li><a href="institutional/accomaniment/">Acompañamientos</a></li>
-            <li><a href="institutional/consultancy/">Consultoría</a></li>
-            <li><a href="platform/register.php">Crear Cuenta</a></li>
-            <li><a href="platform/login.php">Ingresar</a></li>
-        </ul>
-    </nav>
+     <!-- Menu -->
+     <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../../../../index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../educational/workshops">Talleres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../institutional/accompaniment">Acompañamientos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../intitutional/consultancy">Consultoria</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../platform/register.php">Crear Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../platform/login.php">Ingresar</a>
+        </li>
+</nav>
+    <br>
 
     <br><br>
 
     <!--Detalle Card-->
     <div class="card">
-  <div class="card-header">
-    ¿Qué hace un Operador Socio Comunitario en Gestion Social?
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p>
-        Un <b>Operador Socio Comunitario en  Gestión Social</b> 
-        desempeña un papel clave en la promoción del bienestar social dentro de comunidades y grupos vulnerables.
-        Su trabajo se enfoca en identificar, prevenir y abordar problemáticas sociales, proporcionando apoyo y orientación a
-        individuos y familias para mejorar su calidad de vida
-      </p>
-     <!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
-    </blockquote>
-  </div>
-</div>
+        <div class="card-header">
+            ¿Qué hace un Operador SocioComunitario en Adicciones? 
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>
+                El <b>Operador SocioComunitario en Adicciones</b>  se encarga de: <br> 
 
+            <b>Evaluar y Diagnosticar</b>: Identificar necesidades y tipos de adicciones. <br>
+            <b>Intervenir</b>: Implementar programas de tratamiento individual y grupal. <br>
+            <b>Prevenir:</b> Realizar actividades educativas en comunidades sobre riesgos de adicciones. <br>
+            <b>Brindar Apoyo Psicosocial</b>: Ofrecer soporte emocional a personas y familias afectadas. <br>
+            <b>Orientar y Acompañar </b>: Informar sobre recursos de tratamiento y grupos de apoyo. <br>
+            <b>Colaborar Interdisciplinariamente:</b> Trabajar con otros profesionales de salud. <br>
+            <b>Sensibilizar y Capacitar</b>: Educar sobre adicciones y capacitar a otros. <br>
+            <b>Gestionar Casos</b>: Hacer seguimiento del progreso de los pacientes. <br>
+           <b> Desarrollar Programas Comunitarios</b>: Fomentar la inclusión y recuperación en la comunidad. <br>
+           <br>
+            <i>Su objetivo es abordar las adicciones de manera integral y promover el bienestar social. </i> <br>
+                </p>
+            </blockquote>
+        </div>
+    </div>
+<script>
+    e.preventDefault();
+</script>
     <!-- Formulario de Inscripción -->
     <div class="container mt-5">
-        <h2>Formulario de Inscripción a Operador Socio Comunitario en Gestion Social</h2>
+        <h2>Formulario de Inscripción a Operador SocioComunitario en Adicciones </h2>
         <form id="RegistrationForm" action="index.php" method="post">
             <div class="mb-3">
                 <label for="firstName" class="form-label">Nombre Completo</label>
@@ -111,47 +161,82 @@ $conn->close();
                 <input type="tel" class="form-control" id="phone" name="phone" required>
             </div>
             <div class="mb-3">
-            <label for="course" class="form-label">Curso</label>
-            <input type="text" class="form-control" id="course" name="course" value="Operador Socio Comunitario en Gestion Social" readonly>
-        </div>
-            <button type="submit" class="btn btn-primary">Inscribirse</button>
+                <label for="course" class="form-label">Curso</label>
+                <input type="text" class="form-control" id="course" name="course" value="Curso de Operador SocioComunitario en Adicciones">
+            <button type="button"  id="inscribirseBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprobanteModal">Inscribirse</button>
         </form>
     </div>
-    <h3 class="text-center"> Se le enviara un WhatsApp dentro de las 24 horas con los datos del pago!</h3>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center text-lg-start mt-5">
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Sobre nosotros</h5>
-                    <p>Información sobre la empresa, su misión, visión y valores.</p>
+    <!-- Modal para subir comprobante -->
+    <div class="modal fade" id="comprobanteModal" tabindex="-1" aria-labelledby="comprobanteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="comprobanteModalLabel">Datos Bancarios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Enlaces útiles</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="./helpful-links/scopes/" class="text-white">Alcances</a></li>
-                        <li><a href="./helpful-links/pricing/" class="text-white">Precios</a></li>
-                        <li><a href="./jobs" class="text-white">Trabaja con nosotros</a></li>
-                    </ul>
+                <div class="modal-body">
+                    <hr>
+                    <h5>Inscripcion: $5.000</h5>
+                    <h5>Curso: $25.000</h5>
+                    <h5>Total: $30.000</h5>
+                    <hr>
+                    <h6>Por favor, realiza tu pago a la siguiente cuenta:</h6>
+                    <p>Banco: Banco Provincia</p>
+                    
+                    <p>CBU: 0140060103500357748020</p>
+                    <p>Luego sube tu comprobante de pago:</p>
+                    <form id="uploadForm" action="index.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="firstName" value="" id="modalFirstName">
+                        <input type="hidden" name="lastName" value="" id="modalLastName">
+                        <input type="hidden" name="email" value="" id="modalEmail">
+                        <input type="hidden" name="phone" value="" id="modalPhone">
+                        <input type="hidden" name="course" value="Operador Socio Comunitario en Adicciones">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" id="comprobante" name="comprobante" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subir Comprobante</button>
+                    </form>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Contacto</h5>
-                    <ul class="list-unstyled mb-0">
-                        <li><a href="#" class="text-white">Correo: info@empresa.com</a></li>
-                        <li><a href="#" class="text-white">Teléfono: +123 456 7890</a></li>
-                        <li><a href="#" class="text-white">Dirección: Calle Falsa 123</a></li>
-                    </ul>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy; 2024 Nombre de la Empresa. Todos los derechos reservados.
-        </div>
-    </footer>
+    </div>
 
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
+    
    
+    <script>
+        // Al abrir el modal, copiar datos del formulario a los campos ocultos
+    document.querySelector('#inscribirseBtn').addEventListener('click', function () {
+        // Obtener los valores de los campos
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+      if (firstName && lastName && email && phone == null) {
+          alert("null");
+         
+      }
+        // Verificar si todos los campos tienen contenido
+        if (firstName && lastName && email && phone) {
+            // Llenar los campos ocultos del modal
+            document.getElementById('modalFirstName').value = firstName;
+            document.getElementById('modalLastName').value = lastName;
+            document.getElementById('modalEmail').value = email;
+            document.getElementById('modalPhone').value = phone;
 
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            // Mostrar el modal
+            const modal = new bootstrap.Modal(document.getElementById('comprobanteModal'));
+            modal.show();
+        } else {
+            // Mostrar alerta si faltan campos por llenar
+            alert('Complete los campos antes de continuar.');
+            location.reload();
+        }
+    });
+</script>
 </html>

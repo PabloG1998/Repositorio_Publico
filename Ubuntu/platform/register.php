@@ -9,17 +9,35 @@
     <title>Registrarse | Ubuntu</title>
 </head>
 <body>
-<nav class="menu">
-  <ul>
-    <li><a href="../index.php">Inicio</a></li>
-    <li><a href="../educational/courses/">Cursos</a></li>
-    <li><a href="../educational/workshops/">Talleres</a></li>
-    <li><a href="../institutional/accompaniment/">Acompañamientos</a></li>
-    <li><a href="../institutional/consultancy/">Consultoría</a></li>
-    <li><a href="../platform/register.php">Crear Cuenta</a></li>
-    <li><a href="../platform/login.php">Ingresar</a></li>
-  </ul>
+<!-- Menu -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../../../../index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../educational/courses/">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../educational/workshops">Talleres</a>
+        </li>
+        <li class="nav-item">
+     <!--     <a class="nav-link" href="../institutional/accompaniment">Acompañamientos</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../institutional/consultancy">Consultoria</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../platform/register.php">Crear Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../platform/login.php">Ingresar</a>
+        </li>
 </nav>
+    <br><br>
 
 <!-- FORMULARIO DE REGISTRO -->
 
@@ -102,9 +120,12 @@
                 </div>
             </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados.
+        <img src="../resources/images/LOGO COMISION EN BLANCO.png" alt="Logo comision" height="150" width="150">
+          <img src="../resources/images/Grupo educativo LOGO BLANCO.png" alt="Logo grupo eduactivo" height="150" width="150">
+          <img src="../resources/images/EagSKyL6nmIT5erqWDgzbASr0mrytrYTcFlevFtMJegeA8qwxTpQPhGOr3gchU.png" alt="logo centro" height="150" width="150">
+         <h6> &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados. </h6>
         </div>
+    </footer>
     </footer>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

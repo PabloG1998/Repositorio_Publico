@@ -1,8 +1,11 @@
 <?php
 $query = isset($_GET['query']) ? $_GET['query'] : '';
 
-// Conectar a la base de datos y buscar los resultados
-// Suponiendo que tienes una conexión a la base de datos llamada $conn
+$host = 'localhost';
+$dbname = 'u810780627_ubuntudb';
+$user = 'u810780627_ubuntudb';
+$password = '';
+$conn;
 
 $results = [];
 if ($query) {

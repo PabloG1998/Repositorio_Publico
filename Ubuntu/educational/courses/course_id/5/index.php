@@ -1,8 +1,8 @@
 <?php 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ubuntudb";
+$host = 'localhost';
+$dbname = 'u810780627_ubuntudb';
+$user = 'u810780627_ubuntudb';
+$password = '';
 
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);

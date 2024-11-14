@@ -64,7 +64,7 @@ $usuarios = $usuariosController->obtenerTodosLosUsuarios();
 <body>
     <div class="container-fluid">
         <div class="row">
-            <!-- Sidebar -->
+           
             <nav class="col-md-2 sidebar">
                 <h4 class="text-center">Admin Panel</h4>
                 <ul>
@@ -73,10 +73,19 @@ $usuarios = $usuariosController->obtenerTodosLosUsuarios();
                     <li><a href="viewCertificate.php">Certificados</a></li>
                     <li><a href="../../../config/webAppSettings/index.php">Configuración</a></li>
                     <li><a href="course_administration.php">Administración</a></li>
+                    <li><a href="viewCV.php">Ver Postulaciones</a></li>
                     <li><a href="../../../config/logout.php">Cerrar Sesión</a></li>
                 </ul>
             </nav>
-            
+
+
+
+<!--TEST-->
+
+</head>
+<body>
+
+
             <!-- Main content -->
             <div class="col-md-10 main-content">
                 <h2>Lista de Usuarios</h2>
@@ -109,4 +118,5 @@ $usuarios = $usuariosController->obtenerTodosLosUsuarios();
         </div>
     </div>
 </body>
+
 </html>

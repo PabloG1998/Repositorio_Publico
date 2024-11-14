@@ -75,9 +75,11 @@ if ($certificados === false) {
                 <h4 class="text-center">Admin Panel</h4>
                 <ul>
                     <li><a href="./dashboardAdmin.php">Inicio</a></li>
-                    <li><a href="admin_users.php">Usuarios</a></li>
-                    <li><a href="certificados.php" class="active">Certificados</a></li>
+                    <li><a href="admin_users.php" class="active">Usuarios</a></li>
+                    <li><a href="../../content/admin/viewCertificate.php">Certificados</a></li>
                     <li><a href="../../../config/webAppSettings/index.php">Configuración</a></li>
+                    <li><a href="admin_users.php">Administracion</a></li>
+                    <li><a href="viewCV.php">Ver Postulaciones</a></li>
                     <li><a href="../../../config/logout.php">Cerrar Sesión</a></li>
                 </ul>
             </nav>

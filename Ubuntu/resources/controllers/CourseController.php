@@ -7,14 +7,14 @@ class CourseController {
     }
 
     public function obtenerTodosLosCursos() {
-        $query = "SELECT id_curso, nombre FROM cursos";
+        $query = "SELECT id, titulo FROM cursos";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function obtenerTodosLosTalleres() {
-        $query = "SELECT id_taller, nombre FROM talleres";
+        $query = "SELECT id, nombre FROM talleres";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -1,10 +1,11 @@
 <?php
 header('Content-Type: application/json'); // Asegura que la respuesta sea JSON
 
-$host = 'localhost';
-$dbname = 'ubuntudb';
-$user = 'root';
-$password = '';
+$host = "localhost";
+$user = "u810780627_ubuntudb";
+$password = "Ubuntu2020sql";
+$dbname = "u810780627_ubuntudb";
+
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);

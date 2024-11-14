@@ -1,8 +1,8 @@
 <?php 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ubuntudb";
+$username = "u810780627_ubuntudb";
+$password = "Ubuntu2020sql";
+$dbname = "u810780627_ubuntudb";
 
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $curso = isset($_POST['course']) ? $_POST['course'] : '';
 
     // Preparar la consulta SQL y ejecutar
-    $sql = "INSERT INTO formulario_inscripcion_talleres (nombre_completo, apellido, email, telefono, taller) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO formulario_inscripcion (nombre_completo, apellido, email, telefono, curso) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     if ($stmt === false) {
         die("Error al preparar la consulta: " . $conn->error);
@@ -42,6 +42,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  //   echo "No se enviaron datos por POST.";
 }
 
+  // Manejo de subida de comprobante
+  if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] == UPLOAD_ERR_OK) {
+    $comprobante = $_FILES['comprobante']['tmp_name'];
+    $comprobante_name = $_FILES['comprobante']['name'];
+    $comprobante_blob = file_get_contents($comprobante); // Leer el archivo
+
+    // Preparar la consulta para subir el comprobante
+    $sql = "INSERT INTO comprobantes (id, nombre_completo, comprobante, fecha_de_creacion) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    if ($stmt === false) {
+        die("Error al preparar la consulta: " . $conn->error);
+    }
+
+    $stmt->bind_param("issb", $inscripcion_id, $nombre_completo, $apellido, $comprobante_blob);
+
+    if ($stmt->execute()) {
+        echo "Comprobante subido con éxito";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+ 
+}
+
+
 $conn->close();
 ?>
 
@@ -54,23 +78,79 @@ $conn->close();
     <link rel="shortcut icon" href="resources/images/EagSKyL6nmIT5erqWDgzbASr0mrytrYTcFlevFtMJegeA8qwxTpQPhGOr3gchU.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Inicio | Ubuntu</title>
+    <script>
+      function verificarCampos() {
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+
+        if (firstName && lastName && email && phone) {
+          //Muestra el modal
+          const modal = new bootstrap.Modal(document.getElementById('comprobanteModal'));
+          modal.show();
+        }else{
+          alert('Complete los campos antes de continuar');
+        }
+      }
+    </script>
 </head>
 
 <body>
     <!-- Menu -->
-    <nav class="menu">
-        <ul>
-            <li><a href="#">Inicio</a></li>
-            <li><a href="educational/courses/">Cursos</a></li>
-            <li><a href="educational/workshops/">Talleres</a></li>
-            <li><a href="institutional/accomaniment/">Acompañamientos</a></li>
-            <li><a href="institutional/consultancy/">Consultoría</a></li>
-            <li><a href="platform/register.php">Crear Cuenta</a></li>
-            <li><a href="platform/login.php">Ingresar</a></li>
-        </ul>
-    </nav>
+  
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="educational/courses">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../workshops/">Talleres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../accompaniment/">Acompañamientos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../institutional/consultancy/">Consultoria</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../platform/register.php">Crear Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../../../platform/login.php">Ingresar</a>
+        </li>
+       
+       <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+-->
+          </ul>
 
-    <br><br>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <!-- Search -->
+  <!--  <input class="search" type="search" placeholder="Buscar..." id="search" >
+    <button class="btn btn-success">Buscar</button> -->
+  </ul>
+  
+ 
+</nav>
+
+<br> <br>
 
     <!--Detalle Card-->
     <div class="card">
@@ -116,10 +196,43 @@ $conn->close();
             <label for="course" class="form-label">Curso</label>
             <input type="text" class="form-control" id="course" name="course" value="Taller de Inteligencia Emocional" readonly>
         </div>
-            <button type="submit" class="btn btn-primary">Inscribirse</button>
+        <button type="button" id="inscribirseBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprobanteModal">Inscribirse</button>
         </form>
     </div>
-    <h3 class="text-center"> Se le enviara un WhatsApp dentro de las 24 horas con los datos del pago!</h3>
+   <!-- <h3 class="text-center"> Se le enviara un WhatsApp dentro de las 24 horas con los datos del pago!</h3>
+-->
+        <!-- Modal para subir comprobante -->
+        <div class="modal fade" id="comprobanteModal" tabindex="-1" aria-labelledby="comprobanteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="comprobanteModalLabel">Datos Bancarios</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Por favor, realiza tu pago a la siguiente cuenta:</h6>
+                    <p>Banco: Banco Provincia</p>
+                    <p>Titular: Martin Nace</p>
+                    <p>CBU: 0140060103500357748020</p>
+                    <p>Luego sube tu comprobante de pago:</p>
+                    <form id="uploadForm" action="index.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="firstName" value="" id="modalFirstName">
+                        <input type="hidden" name="lastName" value="" id="modalLastName">
+                        <input type="hidden" name="email" value="" id="modalEmail">
+                        <input type="hidden" name="phone" value="" id="modalPhone">
+                        <input type="hidden" name="course" value="Taller de Inteligencia Emocional">
+                        <div class="mb-3">
+                            <input type="file" class="form-control" id="comprobante" name="comprobante" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Subir Comprobante</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center text-lg-start mt-5">
@@ -151,9 +264,39 @@ $conn->close();
             &copy; 2024 Nombre de la Empresa. Todos los derechos reservados.
         </div>
     </footer>
-
-   
-
 </body>
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        // Al abrir el modal, copiar datos del formulario a los campos ocultos
+    document.querySelector('#inscribirseBtn').addEventListener('click', function () {
+        // Obtener los valores de los campos
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+      if (firstName && lastName && email && phone == null) {
+          alert("null");
+         
+      }
+        // Verificar si todos los campos tienen contenido
+        if (firstName && lastName && email && phone) {
+            // Llenar los campos ocultos del modal
+            document.getElementById('modalFirstName').value = firstName;
+            document.getElementById('modalLastName').value = lastName;
+            document.getElementById('modalEmail').value = email;
+            document.getElementById('modalPhone').value = phone;
+
+            // Mostrar el modal
+            const modal = new bootstrap.Modal(document.getElementById('comprobanteModal'));
+            modal.show();
+        } else {
+            // Mostrar alerta si faltan campos por llenar
+            alert('Complete los campos antes de continuar.');
+            location.reload();
+        }
+    });
+</script>
+
 </html>

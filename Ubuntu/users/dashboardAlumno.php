@@ -1,9 +1,9 @@
 <?php
 // conexion.php
 $host = 'localhost'; // Cambia según tu configuración
-$db = 'ubuntudb'; // Cambia según tu base de datos
-$user = 'root'; // Cambia según tu usuario
-$pass = ''; // Cambia según tu contraseña
+$db = 'u810780627_ubuntudb'; // Cambia según tu base de datos
+$user = 'u810780627_ubuntudb'; // Cambia según tu usuario
+$pass = 'Ubuntu2020sql'; // Cambia según tu contraseña
 
 $conn = new mysqli($host, $user, $pass, $db);
 
@@ -12,13 +12,13 @@ if ($conn->connect_error) {
 }
 
 // Consulta para obtener los cursos
-$sql = "SELECT nombre FROM cursos";
+$sql = "SELECT titulo FROM cursos";
 $result = $conn->query($sql);
 
 $cursos = [];
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $cursos[] = $row['nombre'];
+        $cursos[] = $row['titulo'];
     }
 } else {
    // echo "No se encontraron cursos";

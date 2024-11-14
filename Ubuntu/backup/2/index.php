@@ -1,8 +1,8 @@
 <?php 
 $servername = "localhost";
-$username = "u810780627_ubuntudb";
-$password = "Ubuntu2020sql";
-$dbname = "u810780627_ubuntudb";
+$username = "root";
+$password = "";
+$dbname = "ubuntudb";
 
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -36,12 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $stmt->error;
     }
 
-    // Cierra la conexión
-    $stmt->close();
+   
+
 } else {
  //   echo "No se enviaron datos por POST.";
 }
-
   // Manejo de subida de comprobante
   if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] == UPLOAD_ERR_OK) {
     $comprobante = $_FILES['comprobante']['tmp_name'];
@@ -62,7 +61,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Error: " . $stmt->error;
     }
- 
+     // Cierra la conexión
+    $stmt->close();
 }
 
 
@@ -82,81 +82,42 @@ $conn->close();
 
 <body>
     <!-- Menu -->
-     <!-- Menu -->
-  
-     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="educational/courses">Cursos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../../../../educational/workshops">Talleres</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../../../../educactional/accomaniment">Acompañamientos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../../../../educactional/consultancy">Consultoria</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../../../../platform/register.php">Crear Cuenta</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../../../../platform/login.php">Ingresar</a>
-        </li>
-       
-       <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
--->
-          </ul>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="educational/courses/">Cursos</a></li>
+            <li><a href="educational/workshops/">Talleres</a></li>
+            <li><a href="institutional/accomaniment/">Acompañamientos</a></li>
+            <li><a href="institutional/consultancy/">Consultoría</a></li>
+            <li><a href="platform/register.php">Crear Cuenta</a></li>
+            <li><a href="platform/login.php">Ingresar</a></li>
+        </ul>
+    </nav>
 
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-    <!-- Search -->
-  <!--  <input class="search" type="search" placeholder="Buscar..." id="search" >
-    <button class="btn btn-success">Buscar</button> -->
-  </ul>
-  
- 
-</nav>
-
-<br> <br>
+    <br><br>
 
     <!--Detalle Card-->
     <div class="card">
   <div class="card-header">
-      Taller de Biodescodificación Biologica
+    ¿Qué hace un Operador Socio Comunitario en Adicciones?
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p>
-      La <b>biodescodificación biológica</b> (o simplemente <i>biodescodificación</i>) 
-      es una <b>terapia alternativa</b> que sugiere que las enfermedades físicas tienen su origen en 
-      conflictos emocionales no resueltos. Según esta teoría, cada enfermedad o síntoma físico está relacionado con un 
-      conflicto emocional específico o trauma vivido por la persona, que el cuerpo manifiesta en forma de malestar o enfermedad.
+        Un <b>Operador Socio Comunitario en Adicciones</b> 
+        <p>es un profesional especializado en la intervención y el tratamiento de personas con 
+            problemas de adicción. Su trabajo se centra en abordar las adicciones desde una perspectiva integral, 
+            considerando tanto los factores sociales como comunitarios que influyen
+             en el desarrollo y la recuperación de las personas afectadas.<p>
       </p>
      <!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
     </blockquote>
   </div>
-  <hr>
-   <!-- Formulario de Inscripción -->
-   <div class="container mt-5">
-        <h2>Formulario de Inscripción a Taller de Biodescodificación Biologica</h2>
+</div>
+
+    <!-- Formulario de Inscripción -->
+    <div class="container mt-5">
+        <h2>Formulario de Inscripción a Operador Socio Comunitario en Adicciones</h2>
         <form id="RegistrationForm" action="index.php" method="post">
             <div class="mb-3">
                 <label for="firstName" class="form-label">Nombre Completo</label>
@@ -175,55 +136,41 @@ $conn->close();
                 <input type="tel" class="form-control" id="phone" name="phone" required>
             </div>
             <div class="mb-3">
-            <label for="course" class="form-label">Taller</label>
-            <input type="text" class="form-control" id="course" name="course" value="Taller de Biodescodificación Biológica" readonly>
+            <label for="course" class="form-label">Curso</label>
+            <input type="text" class="form-control" id="course" name="course" value="Operador Socio Comunitario en Adicciones" readonly>
         </div>
-        <button type="button" id="inscribirseBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprobanteModal">Inscribirse</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="comprobanteModal">Inscribirse</button>
         </form>
     </div>
-  <!--  <h3 class="text-center"> Se le enviara un WhatsApp dentro de las 24 horas con los datos del pago!</h3> -->
-</div>
 
-
-   
-     <!-- Modal para subir comprobante -->
-     <div class="modal fade" id="comprobanteModal" tabindex="-1" aria-labelledby="comprobanteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <!--Modal comprobante-->
+    <div class="modal fade" id="comprobanteModal" tabindex="-1" aria-labelledby="comprobanteModalLabel" aria-hidden="true">
+        <div class="modal-dialg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="comprobanteModalLabel">Datos Bancarios</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <hr>
-                    <h5>Inscripcion: $5.000</h5>
-                    <h5>Curso: $15.000</h5>
-                    <h5>Total: $20.000</h5>
-                    <hr>
-                    <h6>Por favor, realiza tu pago a la siguiente cuenta:</h6>
-                    <p>Banco: Nombre del Banco</p>
+                    <h6>Por favor, realiza tu pago a la siguiente cuenta: </h6>
+                    <p>Banco: nombre del banco</p>
                     <p>Cuenta: 1234567890</p>
                     <p>Alias: nombre.alias</p>
                     <p>CBU: 1234567890123456789012</p>
-                    <p>Luego sube tu comprobante de pago:</p>
-                    <form id="uploadForm" action="index.php" method="post" enctype="multipart/form-data">
+                    <p>Luego, suba el comprobante de pago: </p>
+                    <form id="index.php" action="index.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="firstName" value="" id="modalFirstName">
                         <input type="hidden" name="lastName" value="" id="modalLastName">
-                        <input type="hidden" name="email" value="" id="modalEmail">
+                        <input type="hidden" name="email" value="" id="modalEmail">  
                         <input type="hidden" name="phone" value="" id="modalPhone">
-                        <input type="hidden" name="course" value="Taller de Biodescodificacion Biologica">
-                        <div class="mb-3">
-                            <input type="file" class="form-control" id="comprobante" name="comprobante" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Subir Comprobante</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <input type="hidden" name="course" value="Curso de Operador Sociocomunitario en Adicciones" id="">  
+                        </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <h3 class="text-center"> Se le enviara un WhatsApp dentro de las 24 horas con los datos del pago!</h3>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center text-lg-start mt-5">
@@ -256,37 +203,21 @@ $conn->close();
         </div>
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script>
-     // Al abrir el modal, copiar datos del formulario a los campos ocultos
-     document.querySelector('#inscribirseBtn').addEventListener('click', function () {
-        // Obtener los valores de los campos
-        const firstName = document.getElementById('firstName').value.trim();
-        const lastName = document.getElementById('lastName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-      if (firstName && lastName && email && phone == null) {
-          alert("null");
-         
-      }
-        // Verificar si todos los campos tienen contenido
-        if (firstName && lastName && email && phone) {
-            // Llenar los campos ocultos del modal
-            document.getElementById('modalFirstName').value = firstName;
-            document.getElementById('modalLastName').value = lastName;
-            document.getElementById('modalEmail').value = email;
-            document.getElementById('modalPhone').value = phone;
 
-            // Mostrar el modal
-            const modal = new bootstrap.Modal(document.getElementById('comprobanteModal'));
-            modal.show();
-        } else {
-            // Mostrar alerta si faltan campos por llenar
-            alert('Complete los campos antes de continuar.');
-            location.reload();
-          }
-        });
-</script>    
-          
+<script>
+    document.querySelector('#comprobanteModal').addEventListener('show-bs.modal', function(evente){
+        var button = event.relatedTarget;
+        var modalFirstName = document.getElementById('modalFirstName');
+        var modalLastName = document.getElementById('modalLastName');
+        var modalEmail = document.getElementById('modalEmail');
+        var modalPhone = document.getElementById('modalPhone');
+
+        modalFirstName.value = document.getElementById('firstName').value;
+        modalLastName.value = document.getElementById('lastName').value;
+        modalEmail.value = document.getElementById('email').value;
+        modalPhone.value = document.getElementById('phone').value;
+    });
+</script>
 </html>

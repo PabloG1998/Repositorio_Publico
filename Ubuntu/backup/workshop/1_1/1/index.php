@@ -1,8 +1,8 @@
 <?php 
-$servername = 'localhost';
-$dbname = 'u810780627_ubuntudb';
-$username = 'u810780627_ubuntudb';
-$password = 'Ubuntu2020sql';
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ubuntudb";
 
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -42,6 +42,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  //   echo "No se enviaron datos por POST.";
 }
 
+  // Manejo de subida de comprobante
+  if (isset($_FILES['comprobante']) && $_FILES['comprobante']['error'] == UPLOAD_ERR_OK) {
+    $comprobante = $_FILES['comprobante']['tmp_name'];
+    $comprobante_name = $_FILES['comprobante']['name'];
+    $comprobante_blob = file_get_contents($comprobante); // Leer el archivo
+
+    // Preparar la consulta para subir el comprobante
+    $sql = "INSERT INTO comprobantes (id, nombre_completo, comprobante, fecha_de_creacion) VALUES (?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    if ($stmt === false) {
+        die("Error al preparar la consulta: " . $conn->error);
+    }
+
+    $stmt->bind_param("issb", $inscripcion_id, $nombre_completo, $apellido, $comprobante_blob);
+
+    if ($stmt->execute()) {
+        echo "Comprobante subido con éxito";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+ 
+}
+
+
 $conn->close();
 ?>
 
@@ -68,22 +92,22 @@ $conn->close();
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../../../../educational/courses">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="educational/courses">Cursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../../../educational/workshops">Talleres</a>
+          <a class="nav-link" href="educational/workshops">Talleres</a>
         </li>
         <li class="nav-item">
-      <!--    <a class="nav-link" href="../../../../institutional/accompaniment">Acompañamientos</a> -->
+          <a class="nav-link" href="educactional/accomaniment">Acompañamientos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../../../institutional/consultancy">Consultoria</a>
+          <a class="nav-link" href="educactional/consultancy">Consultoria</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../../../platform/register.php">Crear Cuenta</a>
+          <a class="nav-link" href="platform/register.php">Crear Cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../../../platform/login.php">Ingresar</a>
+          <a class="nav-link" href="platform/login.php">Ingresar</a>
         </li>
        
        <!-- <li class="nav-item dropdown">
@@ -115,24 +139,17 @@ $conn->close();
     <!--Detalle Card-->
     <div class="card">
   <div class="card-header">
-    ¿Qué hace un Acompañante Terapéutico?
+    Taller de Inteligencia Emocional
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p>
-      Un <b>acompañante terapeutico</b> Un acompañante terapéutico es un profesional que brinda apoyo emocional, 
-      social y práctico a personas con dificultades psíquicas, emocionales o físicas. Su función principal es asistir en 
-      actividades cotidianas, acompañar en tratamientos terapéuticos y ofrecer contención en situaciones de crisis, 
-      siempre con un enfoque personalizado.
-      No realiza diagnósticos ni tratamientos médicos,
-       pero trabaja en conjunto con otros profesionales de la salud. Además, 
-       ayuda a fomentar la autonomía del paciente, reforzando sus habilidades sociales y apoyando su 
-       integración en la vida diaria.
-      El acompañante terapéutico puede 
-      ser útil en casos de trastornos mentales, discapacidades, rehabilitación, 
-      entre otros, y se caracteriza por su empatía, paciencia, y capacidad de escucha activa.
-
-
+        Componentes de la  <b>Inteligencia Emocional</b> <br>
+        <b>1: Autoconciencia</b> <br>
+        <b>2: Autoregulación</b> <br>
+        <b>3: Motivación</b> <br>
+        <b>4: Empatía</b> <br>
+        <b>5: Habilidades Sociales</b>
       </p>
      <!-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> -->
     </blockquote>
@@ -141,7 +158,7 @@ $conn->close();
 
     <!-- Formulario de Inscripción -->
     <div class="container mt-5">
-        <h2>Formulario de Inscripción a Acompañante Terapeutico</h2>
+        <h2>Formulario de Inscripción a Taller de Inteligencia Emocional</h2>
         <form id="RegistrationForm" action="index.php" method="post">
             <div class="mb-3">
                 <label for="firstName" class="form-label">Nombre Completo</label>
@@ -161,15 +178,15 @@ $conn->close();
             </div>
             <div class="mb-3">
             <label for="course" class="form-label">Curso</label>
-            <input type="text" class="form-control" id="course" name="course" value="Curso de Asistente Terapeutico" readonly>
+            <input type="text" class="form-control" id="course" name="course" value="Taller de Inteligencia Emocional" readonly>
         </div>
-        <button type="button" id="inscribirseBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprobanteModal">Inscribirse</button>
+        <button type="button" id="registrationForm button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comprobanteModal">Inscribirse</button>
         </form>
     </div>
-    <h3 class="text-center"> Se le enviara un WhatsApp dentro de las 24 horas con los datos del pago!</h3>
-
-    <!--Modal para subir comprobante-->
-    <div class="modal fade" id="comprobanteModal" tabindex="-1" aria-labelledby="comprobanteModalLabel" aria-hidden="true">
+   <!-- <h3 class="text-center"> Se le enviara un WhatsApp dentro de las 24 horas con los datos del pago!</h3>
+-->
+        <!-- Modal para subir comprobante -->
+        <div class="modal fade" id="comprobanteModal" tabindex="-1" aria-labelledby="comprobanteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -177,11 +194,6 @@ $conn->close();
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <hr>
-                    <h5>Inscripcion: $5.000</h5>
-                    <h5>Curso: $25.000</h5>
-                    <h5>Total: $30.000</h5>
-                    <hr>
                     <h6>Por favor, realiza tu pago a la siguiente cuenta:</h6>
                     <p>Banco: Banco Provincia</p>
                     <p>Titular: Martin Nace</p>
@@ -192,7 +204,7 @@ $conn->close();
                         <input type="hidden" name="lastName" value="" id="modalLastName">
                         <input type="hidden" name="email" value="" id="modalEmail">
                         <input type="hidden" name="phone" value="" id="modalPhone">
-                        <input type="hidden" name="course" value="Curso de Asistente Terapeutico">
+                        <input type="hidden" name="course" value="Taller de Inteligencia Emocional">
                         <div class="mb-3">
                             <input type="file" class="form-control" id="comprobante" name="comprobante" required>
                         </div>
@@ -205,7 +217,6 @@ $conn->close();
             </div>
         </div>
     </div>
-
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center text-lg-start mt-5">
@@ -237,41 +248,24 @@ $conn->close();
             &copy; 2024 Nombre de la Empresa. Todos los derechos reservados.
         </div>
     </footer>
-
-   
-
 </body>
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
 <script>
         // Al abrir el modal, copiar datos del formulario a los campos ocultos
-    document.querySelector('#inscribirseBtn').addEventListener('click', function () {
-        // Obtener los valores de los campos
-        const firstName = document.getElementById('firstName').value.trim();
-        const lastName = document.getElementById('lastName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-      if (firstName && lastName && email && phone == null) {
-          alert("null");
-         
-      }
-        // Verificar si todos los campos tienen contenido
-        if (firstName && lastName && email && phone) {
-            // Llenar los campos ocultos del modal
-            document.getElementById('modalFirstName').value = firstName;
-            document.getElementById('modalLastName').value = lastName;
-            document.getElementById('modalEmail').value = email;
-            document.getElementById('modalPhone').value = phone;
-
-            // Mostrar el modal
-            const modal = new bootstrap.Modal(document.getElementById('comprobanteModal'));
-            modal.show();
-        } else {
-            // Mostrar alerta si faltan campos por llenar
-            alert('Complete los campos antes de continuar.');
-            location.reload();
-        }
-    });
-</script>
+       
+        document.querySelector('#comprobanteModal').addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget; // Botón que disparó el modal
+            var modalFirstName = document.getElementById('modalFirstName');
+            var modalLastName = document.getElementById('modalLastName');
+            var modalEmail = document.getElementById('modalEmail');
+            var modalPhone = document.getElementById('modalPhone');
+            document.querySelector('#RegistrationForm button').addEventListener('click') function() {}
+            modalFirstName.value = document.getElementById('firstName').value;
+            modalLastName.value = document.getElementById('lastName').value;
+            modalEmail.value = document.getElementById('email').value;
+            modalPhone.value = document.getElementById('phone').value;
+        });
+        
+    </script>
 </html>

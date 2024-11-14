@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = ""; // Cambia esto si tienes una contraseña
-$dbname = "UbuntuDB";
+$servername = 'localhost';
+$dbname = 'u810780627_ubuntudb';
+$username = 'u810780627_ubuntudb';
+$password = 'Ubuntu2020sql';
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -43,20 +43,49 @@ $total_pages = ceil($total_talleres / $limit); // Total de páginas
 
 <body>
     <!-- Menu -->
-    <nav class="menu">
-      <ul>
-        <li><a href="../../index.php">Inicio</a></li>
-        <li><a href="../../educational/courses/">Cursos</a></li>
-        <li><a href="#">Talleres</a></li>
-        <li><a href="../../institutional/accomaniment/">Acompañamientos</a></li>
-        <li><a href="../../institutional/consultancy/">Consultoria</a></li>
-        <li><a href="../../platform/register.php">Crear Cuenta</a></li>
-        <li><a href="../../platform/login.php">Ingresar</a></li>
-        <!-- Search -->
-        <input class="search" type="search" placeholder="Buscar..." id="search" >
-        <button class="btn btn-success">Buscar</button>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="../../educational/courses">Cursos</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link active" href="#">Talleres</a>
+        </li>
+        <li class="nav-item">
+        <!--  <a class="nav-link" href="../../institutional/accompaniment">Acompañamientos</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../institutional/consultancy">Consultoria</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../platform/register.php">Crear Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../platform/login.php">Ingresar</a>
+        </li>
+       
+       <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+-->
+          </ul>
+
+        </li>
       </ul>
-    </nav>
+    </div>
+  </div>
+</nav>
 
     <br> <br>
 
@@ -98,6 +127,7 @@ $total_pages = ceil($total_talleres / $limit); // Total de páginas
     </nav>
 
     <!-- Footer -->
+     
     <footer class="bg-dark text-white text-center text-lg-start">
         <div class="container p-4">
             <div class="row">
@@ -126,8 +156,10 @@ $total_pages = ceil($total_talleres / $limit); // Total de páginas
                 </div>
             </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados.
+        <img src="../../resources/images/LOGO COMISION EN BLANCO.png" alt="Logo comision" height="150" width="150">
+          <img src="../../resources/images/Grupo educativo LOGO BLANCO.png" alt="Logo grupo eduactivo" height="150" width="150">
+          <img src="../../resources/images/EagSKyL6nmIT5erqWDgzbASr0mrytrYTcFlevFtMJegeA8qwxTpQPhGOr3gchU.png" alt="logo centro" height="150" width="150">
+         <h6> &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados. </h6>
         </div>
     </footer>
     

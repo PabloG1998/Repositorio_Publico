@@ -1,9 +1,9 @@
-<?php
+<?php 
 // Conexión a la base de datos
 $host = 'localhost';
-$dbname = 'ubuntudb';
-$user = 'root';
-$password = '';
+$dbname = 'u810780627_ubuntudb';
+$user = 'u810780627_ubuntudb';
+$password = 'Ubuntu2020sql';
 
 // Crear conexión
 $conn = new mysqli($host, $user, $password, $dbname);
@@ -12,6 +12,7 @@ $conn = new mysqli($host, $user, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+    
 ?>
 
 <!DOCTYPE html>
@@ -26,17 +27,35 @@ if ($conn->connect_error) {
 </head>
 
 <body>
-    <nav class="menu">
-        <ul>
-            <li><a href="../index.php">Inicio</a></li>
-            <li><a href="../educational/courses/">Cursos</a></li>
-            <li><a href="../educational/workshops/">Talleres</a></li>
-            <li><a href="../institutional/accomaniment/">Acompañamientos</a></li>
-            <li><a href="../institutional/consultancy/">Consultoría</a></li>
-            <li><a href="../platform/register.php">Crear Cuenta</a></li>
-            <li><a href="../platform/login.php">Ingresar</a></li>
-        </ul>
-    </nav>
+    <!-- Menu -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../../../../index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../educational/courses/">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../educational/workshops">Talleres</a>
+        </li>
+        <li class="nav-item">
+         <!-- <a class="nav-link" href="../institutional/accompaniment">Acompañamientos</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../intitutional/consultancy">Consultoria</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../platform/register.php">Crear Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../platform/login.php">Ingresar</a>
+        </li>
+</nav>
+    <br><br>
 
     <!-- Formulario de Inicio de Sesión -->
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
@@ -100,8 +119,10 @@ if ($conn->connect_error) {
                 </div>
             </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados.
+        <img src="../resources/images/LOGO COMISION EN BLANCO.png" alt="Logo comision" height="150" width="150">
+          <img src="../resources/images/Grupo educativo LOGO BLANCO.png" alt="Logo grupo eduactivo" height="150" width="150">
+          <img src="../resources/images/EagSKyL6nmIT5erqWDgzbASr0mrytrYTcFlevFtMJegeA8qwxTpQPhGOr3gchU.png" alt="logo centro" height="150" width="150">
+         <h6> &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados. </h6>
         </div>
     </footer>
 

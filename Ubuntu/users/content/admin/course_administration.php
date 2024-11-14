@@ -19,14 +19,14 @@ $talleres = $courseController->obtenerTodosLosTalleres();
 $acompanamientos = $courseController->obtenerTodosLosAcompanamientos();
 
 // Obtener todos los profesores de la tabla 'profesores'
-$queryProfesores = "SELECT id, nombre FROM profesores";
+$queryProfesores = "SELECT profesor_id, nombre FROM profesores";
 $stmtProfesores = $dbConnection->prepare($queryProfesores);
 $stmtProfesores->execute();
 $profesores = $stmtProfesores->fetchAll(PDO::FETCH_ASSOC);
 
 // Procesar el formulario de agregar curso, taller o acompañamiento
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre'];
+    $nombre = $_POST['titulo'];
     $descripcion = $_POST['descripcion'];
     $fecha_inicio = $_POST['fecha_inicio'];
     $fecha_fin = $_POST['fecha_fin'];
@@ -126,6 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li><a href="viewCertificate.php">Certificados</a></li>
                     <li><a href="../../../config/webAppSettings/index.php">Configuración</a></li>
                     <li><a href="course_administration.php" class="active">Administrar Cursos</a></li>
+                    <li><a href="personnel_administration.php">Administrar Personal</a></li>
                     <li><a href="../../../config/logout.php">Cerrar Sesión</a></li>
                 </ul>
             </nav>
@@ -182,7 +183,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <?php if (!empty($cursos)): ?>
                             <?php foreach ($cursos as $curso): ?>
                                 <option value="<?php echo htmlspecialchars($curso['id']); ?>">
-                                    <?php echo htmlspecialchars($curso['nombre']); ?>
+                                    <?php echo htmlspecialchars($curso['titulo']); ?>
                                 </option>
                             <?php endforeach; ?>
                         <?php else: ?>

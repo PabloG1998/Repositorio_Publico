@@ -1,10 +1,10 @@
 <?php
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "UbuntuDB";
 
+// Conexión a la base de datos
+$servername = 'localhost';
+$dbname = 'u810780627_ubuntudb';
+$username = 'u810780627_ubuntudb';
+$password = 'Ubuntu2020sql';
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -16,6 +16,7 @@ if ($conn->connect_error) {
 // Consultar acompañamientos
 $sql = "SELECT id, nombre, detalles FROM acompanamientos";
 $result = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -102,8 +103,10 @@ $result = $conn->query($sql);
                 </div>
             </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados.
+        <img src="resources/images/LOGO COMISION EN BLANCO.png" alt="Logo comision" height="150" width="150">
+          <img src="resources/images/Grupo educativo LOGO BLANCO.png" alt="Logo grupo eduactivo" height="150" width="150">
+          <img src="resources/images/EagSKyL6nmIT5erqWDgzbASr0mrytrYTcFlevFtMJegeA8qwxTpQPhGOr3gchU.png" alt="logo centro" height="150" width="150">
+         <h6> &copy; 2024 CENTRO DE CAPACITACION Y FORMACION UBUNTU. Todos los derechos reservados. </h6>
         </div>
     </footer>
 

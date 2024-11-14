@@ -1,9 +1,9 @@
 <?php
 // Conexión a la base de datos
 $host = 'localhost';
-$dbname = 'ubuntudb';
-$user = 'root';
-$password = '';
+$dbname = 'u810780627_ubuntudb';
+$user = 'u810780627_ubuntudb';
+$password = 'Ubuntu2020sql';
 
 // Crear conexión
 $conn = new mysqli($host, $user, $password, $dbname);
@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
         
         // Redirigir según el rol
         if ($_SESSION['user_role'] === 'admin') {
-            header("Location: ../users/content/admin/DashboardAdmin.php");
+            header("Location: ../users/content/admin/dashboardAdmin.php");
         } else {
             header("Location: ../users/dashboardAlumno.php");
         }
