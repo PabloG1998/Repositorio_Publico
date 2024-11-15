@@ -63,16 +63,16 @@ $total_pages = ceil($total_talleres / $limit); // Total de páginas
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="../../educational/courses">Cursos</a>
-        </li>
-        <li class="nav-item" >
-          <a class="nav-link active" href="#">Talleres</a>
+          <a class="nav-link active" aria-current="page" href="educational/courses">Cursos</a>
         </li>
         <li class="nav-item">
-        <!--  <a class="nav-link" href="../../institutional/accompaniment">Acompañamientos</a> -->
+          <a class="nav-link" href="../../educational/workshops">Talleres</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../institutional/consultancy">Consultoria</a>
+          <a class="nav-link" href="../../institutional/accomaniment">Acompañamientos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../institutional/consultancy/">Consultoria</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../platform/register.php">Crear Cuenta</a>
@@ -80,16 +80,23 @@ $total_pages = ceil($total_talleres / $limit); // Total de páginas
         <li class="nav-item">
           <a class="nav-link" href="../../platform/login.php">Ingresar</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../../educational/pdf-word/habilitacion.pdf" target="_blank">Habilitacion</a>
+        </li>
        
-       <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
+            Programas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
--->
+            <li><a class="dropdown-item" href="../../educational/pdf-word/t.pdf" target="_blank">Acompañamiento Terapeutico</a></li>
+            <li><a class="dropdown-item" href="./../educational/pdf-word/tbb.pdf" target="_blank">Taller Biodecodifiación Biológica</a></li>
+            <li><a class="dropdown-item" href="./../educational/pdf-word/pco.pdf" target="_blank">Coaching Ontologico</a></li>
+            <li><a class="dropdown-item" href="./../educational/pdf-word/opsca.pdf" target="_blank">Operador Socio-Comunitario en Adicciones</a></li>
+            <li><a class="dropdown-item" href="./../educational/pdf-word/tfsb.pdf" target="_blank">Terapeuta Floral en Sistema Bach</a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+
           </ul>
 
         </li>

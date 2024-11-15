@@ -189,8 +189,7 @@ $conn->close();
                 <div class="modal-body">
                     <hr>
                     <h5>Inscripcion: $5.000</h5>
-                    <h5>Curso: $25.000</h5>
-                    <h5>Total: $30.000</h5>
+                    <h5>Cuota Mensual: $25.000</h5>
                     <hr>
                     <h6>Por favor, realiza tu pago a la siguiente cuenta:</h6>
                     <p>Banco: Banco Provincia</p>

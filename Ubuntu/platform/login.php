@@ -1,18 +1,20 @@
 <?php 
 // Conexión a la base de datos
 //Hostinger
-/*
+
 $host = 'localhost';
 $dbname = 'u810780627_ubuntudb';
 $user = 'u810780627_ubuntudb';
 $password = 'Ubuntu2020sql';
-*/
+
 
 //Localhost
+/*
 $host = "localhost";
 $dbname = "ubuntudb";
 $user = "root";
 $password = "";
+*/
 // Crear conexión
 $conn = new mysqli($host, $user, $password, $dbname);
 
@@ -38,23 +40,23 @@ if ($conn->connect_error) {
     <!-- Menu -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="../../../../index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
+    <a class="navbar-brand" href="index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../educational/courses/">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="../educational/courses">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../educational/workshops">Talleres</a>
         </li>
         <li class="nav-item">
-         <!-- <a class="nav-link" href="../institutional/accompaniment">Acompañamientos</a> -->
+          <a class="nav-link" href="../institutional/accomaniment">Acompañamientos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../intitutional/consultancy">Consultoria</a>
+          <a class="nav-link" href="../institutional/consultancy/">Consultoria</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../platform/register.php">Crear Cuenta</a>
@@ -62,8 +64,30 @@ if ($conn->connect_error) {
         <li class="nav-item">
           <a class="nav-link" href="../platform/login.php">Ingresar</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../educational/pdf-word/habilitacion.pdf" target="_blank">Habilitacion</a>
+        </li>
+       
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Programas
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="../educational/pdf-word/t.pdf" target="_blank">Acompañamiento Terapeutico</a></li>
+            <li><a class="dropdown-item" href="../educational/pdf-word/tbb.pdf" target="_blank">Taller Biodecodifiación Biológica</a></li>
+            <li><a class="dropdown-item" href="../educational/pdf-word/pco.pdf" target="_blank">Coaching Ontologico</a></li>
+            <li><a class="dropdown-item" href="../educational/pdf-word/opsca.pdf" target="_blank">Operador Socio-Comunitario en Adicciones</a></li>
+            <li><a class="dropdown-item" href="../educational/pdf-word/tfsb.pdf" target="_blank">Terapeuta Floral en Sistema Bach</a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+
+          </ul>
+
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
-    <br><br>
 
     <!-- Formulario de Inicio de Sesión -->
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">

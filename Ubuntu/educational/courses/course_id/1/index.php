@@ -1,5 +1,6 @@
 <?php
 //Hostinger
+
 $servername = "localhost";
 $username = "u810780627_ubuntudb";
 $password = "Ubuntu2020sql";
@@ -174,8 +175,7 @@ $conn->close();
                 <div class="modal-body">
                     <hr>
                     <h5>Inscripción: $5.000</h5>
-                    <h5>Curso: $20.000</h5>
-                    <h5>Total: $25.000</h5>
+                    <h5>Cuota Mensual: $20.000</h5>
                     <hr>
                     <h6>Por favor, realiza tu pago a la siguiente cuenta:</h6>
                     <p>Banco: Banco Provincia</p>

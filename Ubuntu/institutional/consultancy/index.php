@@ -14,26 +14,26 @@
 
 <body>
    <!-- Menu -->
-  
+   <!-- Menu -->
    <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="index.php?home=rightClickEvent=True&homeLoaded=true%showWelcome">Bienvenido</a>
+    <a class="navbar-brand" href="index.php?home=rightClickEvent=True&homeLoadaded=true%showWelcome">Bienvenido</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="../../educational/courses/">Cursos</a>
+          <a class="nav-link active" aria-current="page" href="../../educational/courses">Cursos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../educational/workshops">Talleres</a>
         </li>
         <li class="nav-item">
-<!--          <a class="nav-link" href="../../educactional/accomaniment">Acompañamientos</a> -->
+          <a class="nav-link" href="../../institutional/accomaniment">Acompañamientos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../../educactional/consultancy">Consultoria</a>
+          <a class="nav-link" href="../../institutional/consultancy/">Consultoria</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../../platform/register.php">Crear Cuenta</a>
@@ -41,16 +41,23 @@
         <li class="nav-item">
           <a class="nav-link" href="../../platform/login.php">Ingresar</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="../../educational/pdf-word/habilitacion.pdf" target="_blank">Habilitacion</a>
+        </li>
        
-       <!-- <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
+            Programas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
--->
+            <li><a class="dropdown-item" href="../../educational/pdf-word/t.pdf" target="_blank">Acompañamiento Terapeutico</a></li>
+            <li><a class="dropdown-item" href="../../educational/pdf-word/tbb.pdf" target="_blank">Taller Biodecodifiación Biológica</a></li>
+            <li><a class="dropdown-item" href="../../educational/pdf-word/pco.pdf" target="_blank">Coaching Ontologico</a></li>
+            <li><a class="dropdown-item" href="../../educational/pdf-word/opsca.pdf" target="_blank">Operador Socio-Comunitario en Adicciones</a></li>
+            <li><a class="dropdown-item" href="../../educational/pdf-word/tfsb.pdf" target="_blank">Terapeuta Floral en Sistema Bach</a></li>
+            <li><a class="dropdown-item" href="#"></a></li>
+
           </ul>
 
         </li>
@@ -72,12 +79,12 @@
   <div class="content" style="text-align: center;">
 
   <h1 style="text-align: center;">Consultoria</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus facilis alias, enim vitae eum dolorem obcaecati consequatur <br>
-    fugiat, porro tempora adipisci reiciendis modi ratione ex aliquam dicta deserunt libero doloribus.</p>
+  <p>La <b>Consultoria Piscológica</b> o <b>Counseling</b>, es una disciplina que actúa <br>
+    en el campo de la <b>Promoción, Bienestar y Desarrollo Humano</b></p>
     <br>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur vero illo <br> 
-  inventore ipsam molestiae quis, optio, excepturi omnis cupiditate, nisi impedit. 
-    Accusantium quas suscipit <br> beatae deserunt rerum eos, <b>voluptatem</b> necessitatibus.</p>
+  <p>Brindando orientación y apoyo psicológico a las personas en sus <b>crisis</b> <br>
+  <b>conflictos</b> y <b>necesidades de crecimiento personal.</b> 
+</p>  
   </div>
 
 <!-- Footer -->

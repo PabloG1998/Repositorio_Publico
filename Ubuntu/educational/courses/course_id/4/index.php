@@ -1,17 +1,17 @@
 <?php 
-/*
+
 //Hostinger
 $servername = "localhost";
 $username = "u810780627_ubuntudb";
 $password = "Ubuntu2020sql";
 $dbname = "u810780627_ubuntudb";
-*/
+/*
 //localhost
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "ubuntudb";
-
+*/
 // Crea la conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -187,8 +187,7 @@ $conn->close();
                 <div class="modal-body">
                 <hr>
                     <h5>Inscripcion: $5.000</h5>
-                    <h5>Curso: $25.000</h5>
-                    <h5>Total: $30.000</h5>
+                    <h5>Cuota Mensual: $25.000</h5>
                     <hr>
                     <h6>Por favor, realiza tu pago a la siguiente cuenta:</h6>
                     <p>Banco: Banco Provincia</p>
